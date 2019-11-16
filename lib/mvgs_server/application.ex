@@ -11,9 +11,10 @@ defmodule MvgsServer.Application do
       # Start the Ecto repository
       MvgsServer.Repo,
       # Start the endpoint when the application starts
-      MvgsServerWeb.Endpoint
+      MvgsServerWeb.Endpoint,
       # Starts a worker by calling: MvgsServer.Worker.start_link(arg)
       # {MvgsServer.Worker, arg},
+      MvgsServerWeb.Presence
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

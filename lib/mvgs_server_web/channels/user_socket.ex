@@ -2,7 +2,7 @@ defmodule MvgsServerWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", MvgsServerWeb.RoomChannel
+  channel "room:*", MvgsServerWeb.RoomChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
@@ -15,8 +15,9 @@ defmodule MvgsServerWeb.UserSocket do
   #
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
-  def connect(_params, socket, _connect_info) do
-    {:ok, socket}
+  def connect(params, socket, _connect_info) do
+    IO.inspect params
+    {:ok, assign(socket, :username, params["username"])}
   end
 
   # Socket id's are topics that allow you to identify all sockets for a given user:

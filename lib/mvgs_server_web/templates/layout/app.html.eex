@@ -12,11 +12,18 @@
       <section class="container">
         <nav role="navigation">
           <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
+            <li>
+              <%= if @conn.assigns[:user_id] do %>
+                <%= @conn.assigns[:user_id] %>
+                <a href="/logout">Logout</a>
+              <% else %>
+                <a href="/login">Login</a>
+              <% end %>
+            </li>
           </ul>
         </nav>
-        <a href="http://phoenixframework.org/" class="phx-logo">
-          <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
+        <a href="/" class="server-logo">
+          Minumum Viable Game Server
         </a>
       </section>
     </header>
